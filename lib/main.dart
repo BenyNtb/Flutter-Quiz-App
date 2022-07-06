@@ -24,18 +24,18 @@ class _MyAppState extends State < MyApp > {
       'questionText': 'What\'s your favorite color?',
       'answers': [
         {'text': 'Black','score': 10}, 
-        {'text': 'Red','score': 9}, 
-        {'text': 'Green','score': 8}, 
-        {'text': 'White','score': 7},
+        {'text': 'Red','score': 5}, 
+        {'text': 'Green','score': 3}, 
+        {'text': 'White','score': 1},
       ],
     },
     {
       'questionText': 'What\'s your favorite animal?',
       'answers': [
         {'text':'Dog','score': 10}, 
-        {'text':'Cat','score': 9}, 
-        {'text':'Rabbit','score': 8}, 
-        {'text':'Hamster','score': 7}
+        {'text':'Cat','score': 5}, 
+        {'text':'Rabbit','score': 3}, 
+        {'text':'Hamster','score': 1}
         ],
     },
     {
@@ -43,8 +43,8 @@ class _MyAppState extends State < MyApp > {
       'answers': [
         {'text':'Chris Brown','score': 10},
         {'text':'Kehlani','score': 9}, 
-        {'text':'Aaliyah','score': 8}, 
-        {'text':'Bryson Tiller','score': 7}
+        {'text':'Aaliyah','score': 3}, 
+        {'text':'Bryson Tiller','score': 1}
         ],
     },
   ];
@@ -80,7 +80,7 @@ class _MyAppState extends State < MyApp > {
           questionIndex: _questionIndex,
           questions: _questions,
         ) :
-        Result(),
+        Result(_totalScore),
       ),
     );
   }
