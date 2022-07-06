@@ -12,32 +12,49 @@ void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() {
+  State < StatefulWidget > createState() {
     // TODO: implement createState
     return _MyAppState();
   }
 }
 
-class _MyAppState extends State<MyApp> {
-  final _questions = const [
-    {
+class _MyAppState extends State < MyApp > {
+  final _questions =
+  const [{
       'questionText': 'What\'s your favorite color?',
-      'answers': ['Black', 'Red', 'Green', 'White'],
+      'answers': [
+        {'text': 'Black','score': 10}, 
+        {'text': 'Red','score': 9}, 
+        {'text': 'Green','score': 8}, 
+        {'text': 'White','score': 7},
+      ],
     },
     {
       'questionText': 'What\'s your favorite animal?',
-      'answers': ['Dog', 'Cat', 'Rabbit', 'Hamster'],
+      'answers': [
+        {'text':'Dog','score': 10}, 
+        {'text':'Cat','score': 9}, 
+        {'text':'Rabbit','score': 8}, 
+        {'text':'Hamster','score': 7}
+        ],
     },
     {
       'questionText': 'Who\'s your favorite artist?',
-      'answers': ['Chris Brown', 'Kehlani', 'Aaliyah', 'Bryson Tiller'],
+      'answers': [
+        {'text':'Chris Brown','score': 10},
+        {'text':'Kehlani','score': 9}, 
+        {'text':'Aaliyah','score': 8}, 
+        {'text':'Bryson Tiller','score': 7}
+        ],
     },
   ];
   var _questionIndex = 0;
+  var _totalScore = 0;
 
-  void _answerQuestion() {
+  void _answerQuestion(int score) {
     // var aBool = true;
     // aBool = false;
+    _totalScore += score;
 
     setState(() {
       _questionIndex = _questionIndex + 1;
@@ -57,13 +74,13 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: Text('My First App'),
         ),
-        body: _questionIndex < _questions.length
-            ? Quiz(
-                answerQuestion: _answerQuestion,
-                questionIndex: _questionIndex,
-                questions: _questions,
-              )
-            : Result(),
+        body: _questionIndex < _questions.length ?
+        Quiz(
+          answerQuestion: _answerQuestion,
+          questionIndex: _questionIndex,
+          questions: _questions,
+        ) :
+        Result(),
       ),
     );
   }
